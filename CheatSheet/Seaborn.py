@@ -39,6 +39,10 @@ occupation_df.plot(kind = 'barh', figsize = (10, 12), cmap='seismic')
 # 回帰曲線を描く
 sns.lmplot('RM', 'Price', data = boston_df)
 
+# タイトルを付与
+plt.title('Logistic Function')
+
+
 
 
 
