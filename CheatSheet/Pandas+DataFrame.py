@@ -111,6 +111,15 @@ boston_df = DataFrame(boston.data)
 # 列名をつける
 boston_df.columns = boston.feature_names
 
+# DataFrame
+# 関数を適用する
+def affair_check(x):
+    if x != 0:
+        return 1
+    else:
+        return 0
+df['Had_Affair'] = df['affairs'].apply(affair_check)
+
 
 
 
