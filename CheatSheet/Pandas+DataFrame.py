@@ -120,7 +120,11 @@ def affair_check(x):
         return 0
 df['Had_Affair'] = df['affairs'].apply(affair_check)
 
+# 列方向に結合する
+X = pd.concat([X, dummies], axis=1)
 
+# 多次元配列から１次元配列に変換
+Y = Y.values
 
 
 
