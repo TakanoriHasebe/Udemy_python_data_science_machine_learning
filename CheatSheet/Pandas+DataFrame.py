@@ -87,9 +87,12 @@ party_map = {'Bachmann, Michelle': 'Republican',
 # 新しい列を作成する
 donor_df['Party'] = donor_df.cand_nm.map(party_map)s
 
-# DataFrame
 # Groupby
-donor_df.groupby('cand_nm')['contb_receipt_amt'].count().sort_values()
+fish_multi.groupby("species").describe()
+
+# 種類ごとに体長データを取り出す
+length_a = fish_multi.query('species=="A"')["length"]
+length_b = fish_multi.query('species=="B"')["length"]
 
 # DataFrame
 # 寄付の額が100万ドル以上の職業に絞る
@@ -126,8 +129,23 @@ X = pd.concat([X, dummies], axis=1)
 # 多次元配列から１次元配列に変換
 Y = Y.values
 
+# group
+# まずは種類ごとのグループを作成
+group = fish_multi.groupby("species")
 
+# groupの平均値
+# 種類ごとに平均値を求めた
+print(group.mean())
 
+# 標準偏差も求める
+print(group.std(ddof=1))
+
+# 平均値、標準偏差、四分位点をまとめて出力
+group.describe()
+
+# データの取り出し
+x = cov_data["x"]
+y = cov_data["y"]
 
 
 
